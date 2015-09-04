@@ -129,7 +129,30 @@ class Stack:
 	def size(self):
 		return len(self.items)
 		
-		
+class Graph:
+	def __init__(self):
+		self.dictionary = {}
+	def addVertex(self, value):
+		if value in self.dictionary:
+			print("Vertex already exists")
+		else:
+			self.dictionary[value] = None
+	def addEdge(self, value1, value2):
+		if (value1 in self.dictionary) and (value2 in self.dictionary):
+			if self.dictionary[value1] == None:
+				self.dictionary[value1] = [value2]
+			else:
+				self.dictionary[value1].append(value2)
+			if self.dictionary[value2] == None:
+				self.dictionary[value2] = [value1]
+			else:
+				self.dictionary[value2].append(value1)
+		else:
+			print("One or more vertices not found")
+	def findVertex(self,value):
+		if value in self.dictionary:
+			print(value, ":",self.dictionary[value])
+				
 q = Queue()
 
 q.enqueue(1)
@@ -197,3 +220,49 @@ t.printTree()
 t.delete(9)
 t.delete(10)
 t.printTree()
+
+print(" ")
+print("Graph Test")
+g = Graph()
+g.addVertex(1)
+g.addVertex(2)
+g.addVertex(3)
+g.addVertex(4)
+g.addVertex(5)
+g.addVertex(6)
+g.addVertex(7)
+g.addVertex(8)
+g.addVertex(9)
+g.addVertex(10)
+g.addEdge(1,2)
+g.addEdge(1,3)
+g.addEdge(1,4)
+g.addEdge(1,5)
+g.addEdge(1,6)
+g.addEdge(1,7)
+g.addEdge(1,8)
+g.addEdge(1,9)
+g.addEdge(1,10)
+g.addEdge(2,3)
+g.addEdge(2,4)
+g.addEdge(2,5)
+g.addEdge(2,6)
+g.addEdge(2,7)
+g.addEdge(2,8)
+g.addEdge(2,9)
+g.addEdge(2,10)
+g.addEdge(3,4)
+g.addEdge(3,5)
+g.addEdge(3,6)
+g.addEdge(3,7)
+g.addEdge(3,8)
+g.findVertex(1)
+g.findVertex(2)
+g.findVertex(3)
+g.findVertex(4)
+g.findVertex(5)
+g.findVertex(6)
+g.findVertex(7)
+g.findVertex(8)
+g.findVertex(9)
+g.findVertex(10)
